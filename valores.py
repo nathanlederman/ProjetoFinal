@@ -4,7 +4,7 @@ janela1["bg"] = "gold"
 
 ## labels de valores
 
-lb1= Label(janela1,width = 15, text = "R$ 0.50")
+lb1= Label(janela1,width = 15, text = "R$ 0.01")
 lb1.place(x = 1, y =0)
 
 lb2= Label(janela1,width = 15, text = "R$ 1")
