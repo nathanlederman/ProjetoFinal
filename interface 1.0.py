@@ -6,13 +6,17 @@
     proposta do banqueiro
     gif de "resposta" das maletas. 
     """
+
 from tkinter import *
 def bt_click():
-    print("A maleta vale:")
+    print("A maleta vale",  "reais")
     
 #    lb["text"] = "Voce quer mesmo retirar essa maleta ?
 
 janela = Tk()
+janela["bg"] = "black"
+
+## Botoes
 
 bt1= Button(janela,width = 15, text = "Maleta 1" ,command=bt_click)
 bt1.place(x = 1, y =0)
@@ -92,8 +96,11 @@ bt25.place(x = 150, y =330)
 bt26= Button(janela,width = 15, text = "Maleta 26" ,command=bt_click)
 bt26.place(x = 150, y =360)
 
+lb= Label(janela,width = 25, text = "Escolha uma maleta a ser retirada")
+lb.place(x = 40, y = 400 )
 
-janela.geometry("400x600+200+200")
+janela.geometry("300x450+200+200")
+
 janela.mainloop()
 
     
