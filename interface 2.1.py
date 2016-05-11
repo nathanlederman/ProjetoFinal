@@ -8,11 +8,23 @@
     """
 
 from tkinter import *
+from PIL import Image, ImageTk
+
 def bt_click():
     print("A maleta vale",  "reais")
+def proposta():
+    print("A proposta do banqueiro foi aceita, voce ganhou", "reais")
 
 
 janela = Tk()
+
+image = Image.open("topa_ou_nao_topa.JPEG")
+photo = ImageTk.PhotoImage(image)
+lb27 = Label(image=photo)
+lb27.image = photo # keep a reference!
+lb27.pack()
+
+
 janela["bg"] = "black"
 
 ## Botoes
@@ -94,8 +106,9 @@ bt25.place(x = 450, y =330)
 bt26= Button(janela,width = 15, text = "Maleta 26" ,fg="gold",command=bt_click)
 bt26.place(x = 450, y =360)
 
-bt27 = Button(janela,width= 25, text = "Confirmar proposta do banqueiro",fg="red", command = bt_click )
+bt27 = Button(janela,width= 35, text = "Confirmar proposta do banqueiro",fg="red", command = proposta )
 bt27.place(x= 300, y =400)
+
 ## Valores
 lb1= Label(janela,width = 15,fg="black",bg="gold", text = "R$ 0.5")
 lb1.place(x = 1, y =0)
@@ -178,7 +191,7 @@ lb26.place(x = 150, y =360)
 
 
 janela.geometry("600x800+200+200")
-janela.title("Maletas")
+janela.title("interface")
 janela.mainloop()
 
     
