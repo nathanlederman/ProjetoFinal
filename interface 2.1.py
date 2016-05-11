@@ -17,15 +17,8 @@ def proposta():
 
 
 janela = Tk()
+janela["bg"]="black"
 
-image = Image.open("topa_ou_nao_topa.JPEG")
-photo = ImageTk.PhotoImage(image)
-lb27 = Label(image=photo)
-lb27.image = photo # keep a reference!
-lb27.pack()
-
-
-janela["bg"] = "black"
 
 ## Botoes
 bt1= Button(janela,width = 15, text = "Maleta 1",fg= "gold",command=bt_click)
