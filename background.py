@@ -1,4 +1,8 @@
+from tkinter import *
+from PIL import Image, ImageTk
+janela = Tk()
 janela.configure(background="black")
+
 
 
 
@@ -32,3 +36,6 @@ class Example(Frame):
 
 e = Example(janela)
 e.pack(fill=BOTH, expand=YES)
+janela.geometry("1200x900+200+200")
+janela.title("background")
+janela.mainloop()

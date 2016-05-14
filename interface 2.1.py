@@ -8,99 +8,110 @@
     """
 
 from tkinter import *
-from PIL import Image, ImageTk
+
 
 def bt_click():
     print("A maleta vale",  "reais")
-def proposta():
-    print("A proposta do banqueiro foi aceita, voce ganhou", "reais")
+def bt_onclick():
+    print(ed.get())
+   
+    
+#def proposta():
+#    print("A proposta do banqueiro foi aceita, voce ganhou", "reais")
 
 
 janela = Tk()
 janela["bg"]="black"
 
+## Entry de dados
+lb27= Label(janela,width = 25,fg="black",bg="gold",text= "Digite a maleta a ser retirada")
+lb27.place(x= 300, y = 390)
+ed= Entry(janela,width = 25,fg="black",bg="gold")
+ed.place(x= 300, y =420 )
+bt27 = Button(janela,width= 25, text = "OK",fg="red", command = bt_onclick )
+bt27.place(x= 300, y =450)
+
 
 ## Botoes
-bt1= Button(janela,width = 15, text = "Maleta 1",fg= "gold",command=bt_click)
+bt1= Button(janela,width = 15, text = "Maleta 1",fg= "gold",command=bt_onclick)
 bt1.place(x = 300, y =0)
 
-bt2= Button(janela,width = 15, text = "Maleta 2" ,fg="gold",command=bt_click)
+bt2= Button(janela,width = 15, text = "Maleta 2" ,fg="gold",command=bt_onclick)
 bt2.place(x = 300, y =30)
 
-bt3= Button(janela,width = 15, text = "Maleta 3" ,fg="gold",command=bt_click)
+bt3= Button(janela,width = 15, text = "Maleta 3" ,fg="gold",command=bt_onclick)
 bt3.place(x = 300, y =60)
 
-bt4= Button(janela,width = 15, text = "Maleta 4" ,fg="gold",command=bt_click)
+bt4= Button(janela,width = 15, text = "Maleta 4" ,fg="gold",command=bt_onclick)
 bt4.place(x = 300, y =90)
 
-bt5= Button(janela,width = 15, text = "Maleta 5" ,fg="gold",command=bt_click)
+bt5= Button(janela,width = 15, text = "Maleta 5" ,fg="gold",command=bt_onclick)
 bt5.place(x = 300, y =120)
 
-bt6= Button(janela,width = 15, text = "Maleta 6" ,fg="gold",command=bt_click)
+bt6= Button(janela,width = 15, text = "Maleta 6" ,fg="gold",command=bt_onclick)
 bt6.place(x = 300, y =150)
 
-bt7= Button(janela,width = 15, text = "Maleta 7" ,fg="gold",command=bt_click)
+bt7= Button(janela,width = 15, text = "Maleta 7" ,fg="gold",command=bt_onclick)
 bt7.place(x = 300, y =180)
 
-bt8= Button(janela,width = 15, text = "Maleta 8" ,fg="gold",command=bt_click)
+bt8= Button(janela,width = 15, text = "Maleta 8" ,fg="gold",command=bt_onclick)
 bt8.place(x = 300, y =210)
 
-bt9= Button(janela,width = 15, text = "Maleta 9" ,fg="gold",command=bt_click)
+bt9= Button(janela,width = 15, text = "Maleta 9" ,fg="gold",command=bt_onclick)
 bt9.place(x = 300, y =240)
 
-bt10= Button(janela,width = 15, text = "Maleta 10" ,fg="gold",command=bt_click)
+bt10= Button(janela,width = 15, text = "Maleta 10" ,fg="gold",command=bt_onclick)
 bt10.place(x = 300, y =270)
 
-bt11= Button(janela,width = 15, text = "Maleta 11" ,fg="gold",command=bt_click)
+bt11= Button(janela,width = 15, text = "Maleta 11" ,fg="gold",command=bt_onclick)
 bt11.place(x = 300, y =300)
 
-bt12= Button(janela,width = 15, text = "Maleta 12" ,fg="gold",command=bt_click)
+bt12= Button(janela,width = 15, text = "Maleta 12" ,fg="gold",command=bt_onclick)
 bt12.place(x = 300, y =330)
 
-bt13= Button(janela,width = 15, text = "Maleta 13" ,fg="gold",command=bt_click)
+bt13= Button(janela,width = 15, text = "Maleta 13" ,fg="gold",command=bt_onclick)
 bt13.place(x = 300, y =360)
 
-bt14= Button(janela,width = 15, text = "Maleta 14" ,fg="gold",command=bt_click)
+bt14= Button(janela,width = 15, text = "Maleta 14" ,fg="gold",command=bt_onclick)
 bt14.place(x = 450, y =0)
 
-bt15= Button(janela,width = 15, text = "Maleta 15" ,fg="gold",command=bt_click)
+bt15= Button(janela,width = 15, text = "Maleta 15" ,fg="gold",command=bt_onclick)
 bt15.place(x = 450, y =30)
 
-bt16= Button(janela,width = 15, text = "Maleta 16" ,fg="gold",command=bt_click)
+bt16= Button(janela,width = 15, text = "Maleta 16" ,fg="gold",command=bt_onclick)
 bt16.place(x = 450, y =60)
 
-bt17= Button(janela,width = 15, text = "Maleta 17" ,fg="gold",command=bt_click)
+bt17= Button(janela,width = 15, text = "Maleta 17" ,fg="gold",command=bt_onclick)
 bt17.place(x = 450, y =90)
 
-bt18= Button(janela,width = 15, text = "Maleta 18" ,fg="gold",command=bt_click)
+bt18= Button(janela,width = 15, text = "Maleta 18" ,fg="gold",command=bt_onclick)
 bt18.place(x = 450, y =120)
 
-bt19= Button(janela,width = 15, text = "Maleta 19" ,fg="gold",command=bt_click)
+bt19= Button(janela,width = 15, text = "Maleta 19" ,fg="gold",command=bt_onclick)
 bt19.place(x = 450, y =150)
 
-bt20= Button(janela,width = 15, text = "Maleta 20" ,fg="gold",command=bt_click)
+bt20= Button(janela,width = 15, text = "Maleta 20" ,fg="gold",command=bt_onclick)
 bt20.place(x = 450, y =180)
 
-bt21= Button(janela,width = 15, text = "Maleta 21" ,fg="gold",command=bt_click)
+bt21= Button(janela,width = 15, text = "Maleta 21" ,fg="gold",command=bt_onclick)
 bt21.place(x = 450, y =210)
 
-bt22= Button(janela,width = 15, text = "Maleta 22" ,fg="gold",command=bt_click)
+bt22= Button(janela,width = 15, text = "Maleta 22" ,fg="gold",command=bt_onclick)
 bt22.place(x = 450, y =240)
 
-bt23= Button(janela,width = 15, text = "Maleta 23" ,fg="gold",command=bt_click)
+bt23= Button(janela,width = 15, text = "Maleta 23" ,fg="gold",command=bt_onclick)
 bt23.place(x = 450, y =270)
 
-bt24= Button(janela,width = 15, text = "Maleta 24" ,fg="gold",command=bt_click)
+bt24= Button(janela,width = 15, text = "Maleta 24" ,fg="gold",command=bt_onclick)
 bt24.place(x = 450, y =300)
 
-bt25= Button(janela,width = 15, text = "Maleta 25" ,fg="gold",command=bt_click)
+bt25= Button(janela,width = 15, text = "Maleta 25" ,fg="gold",command=bt_onclick)
 bt25.place(x = 450, y =330)
 
-bt26= Button(janela,width = 15, text = "Maleta 26" ,fg="gold",command=bt_click)
+bt26= Button(janela,width = 15, text = "Maleta 26" ,fg="gold",command=bt_onclick)
 bt26.place(x = 450, y =360)
 
-bt27 = Button(janela,width= 35, text = "Confirmar proposta do banqueiro",fg="red", command = proposta )
-bt27.place(x= 300, y =400)
+
 
 ## Valores
 lb1= Label(janela,width = 15,fg="black",bg="gold", text = "R$ 0.5")
