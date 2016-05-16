@@ -8,12 +8,22 @@
     """
 
 from tkinter import *
+from PIL import Image,ImageTk
 
-#imagem == maleta.jpg
 
 def bt_onclick():
-    #open imagem maleta
-    # turn off label valor X
+    
+    image=Image.open("maleta.gif")
+    photo=ImageTk.PhotoImage(image)
+    lb28=Label(image=photo)
+    lb28.image=photo
+    lb28.pack()
+#    maleta_img = Image.open("maleta.jpg")
+#    photo = ImageTk.PhotoImage(maleta_img)
+#    lb28=Label(maleta_img=photo)
+#    lb28.image= photo
+#    lb28.show()
+    
 
     print(ed.get())
 
@@ -23,7 +33,7 @@ janela = Tk()
 janela["bg"]="black"
 
 ## Entry de dados
-lb27= Label(janela,width = 25,fg="black",bg="gold",text= "Digite a maleta a ser retirada")
+lb27= Label(janela,width = 25,fg="black",bg="gold",text= "Digite o No da maleta a ser retirada")
 lb27.place(x= 300, y = 390)
 ed= Entry(janela,width = 25,fg="black",bg="gold")
 ed.place(x= 300, y =420 )
