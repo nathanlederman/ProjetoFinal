@@ -23,20 +23,16 @@ class Tabuleiro:
     def bt_onclick(ed):
     
     
-#    image=Image.open("maleta.gif")
-#    photo=ImageTk.PhotoImage(image)
-#    lb28=Label(image=photo)
-#    lb28.image=photo
-#    lb28.pack()
+        image=Image.open("maleta.gif")
+        photo=ImageTk.PhotoImage(image)
+        lb28=Label.configure(image=photo)
+        lb28.pack()
 
     
 
         print(ed.get())
 
 
-
-#janela = Tk()
-#janela["bg"]="black"
     def interface(self):
         
     ## Entry de dados
@@ -213,8 +209,8 @@ class Tabuleiro:
     def iniciar(self):
         self.janela.mainloop()
     
-jogo= Tabuleiro()
-jogo.iniciar()
+interface= Tabuleiro()
+interface.iniciar()
 
 
     
