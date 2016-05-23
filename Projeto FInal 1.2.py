@@ -90,11 +90,11 @@ def Fim(oferta, escolha, escolhido):
     
     if final == "s" or final == "S":
             print ("Voce ganhou","R$",escolha)
-                break
+            main()
 			
     elif final == "N" or final == "n":
            print ("Voce ganhou","R$","%.2f"%oferta)
-               break
+           main()
 			
     else:
        print ("Opcão invalida")
