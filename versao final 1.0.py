@@ -11,7 +11,7 @@ import statistics as st
 from tkinter import *
 
 
-
+# Comentario - cria a lista de possiveis valores das maletas, e cria duas listas onde a primeira é responsável por checar as maletas que já foram escolhidas e a segunda a escolha do usuário(se ele mantém ou nao)
 class Jogo:
     def __init__(self):
         self.maletas = [.5, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750,1000, 5000, 10000, 25000, 50000, 75000,100000, 200000,300000, 400000, 500000, 750000, 1000000]
@@ -20,7 +20,7 @@ class Jogo:
         
         self.escolha = []
         
-        
+    #comentário - funcao main, checa se o usuario escolheu uma maleta dentro do range e caso esteja, randomiza as maletas e os valores e as maletas escolhidas sao adicionadas na lista checklist
     def main(self):
     	self.escolhido = input("Escolha a maleta (1,26): ")
     
@@ -39,7 +39,7 @@ class Jogo:
                 
   
 
-    
+    # Comentário - A funcao banqueiro é responsável por fazer a média dos valores das maletas ainda possiveis para escolha levando em conta desvio padrão e o tipode distribuicao
     def Banqueiro(self,escolhido,checklist):
         
             self.media = sum(self.maletas)/float(len(self.maletas))
@@ -54,7 +54,8 @@ class Jogo:
             
             print(self.media)
             print(self.oferta)        
-            
+
+            #Comentário - Nessa secçção o usuario decide se aceita a oferta calculada pelo banqueiro, se aceitar a oferta  o jogo termina e ele recebe o valor caso recuse, o jogo retorna ao normal onde o jogador continua eliminando as maletas
             if len(self.maletas) > 1:	
     			
             		
@@ -73,7 +74,8 @@ class Jogo:
                     else:
                         print ("Opcao invalida")
                         self.Banqueiro(self.escolhido,self.checklist)
-               
+
+    #Comentário - outra função que calcula a media dos valores das maletas restantes
     def Banqueiro2(self,escolhido,checklist):
         
             self.media = sum(self.maletas)/float(len(self.maletas))
@@ -83,7 +85,7 @@ class Jogo:
             if len(self.maletas) == 1:
                 self.Fim(self.media, self.escolha, self.escolhido)
              
-    
+    #Comentario - Funcao checa o input do usuario, caso ele queria ficar com a maleta, o jogo termina, caso não ele terá a opcao de aceitar umaultima oferta do banqueiro e se recusar terá o valor da ultima maleta restante
     def Fim(self,oferta, escolha, escolhido):
         
         self.final = input("Voce quer manter sua maleta final?  (S)im ou (N)ão: ")
@@ -100,6 +102,7 @@ class Jogo:
            print ("Opcão invalida")
            self.Banqueiro(self.escolhido,self.checklist)    
 
+    #Comentário - funcao que remove as maletas dentro do range estabelecido
     turnos = [6,3,6,3,3,2,1]  
     def Remove(self,escolhido,checklist):
         
@@ -114,7 +117,7 @@ class Jogo:
         
                     self.removemaletas = input("Escolha uma maleta para ser removida (1,26): ")
                       
-        		
+        		    #Comentário - Nessa secção,checa se as maletas escolhidas para serem removidas estao no range, checa se a maleta nao foi escolhida 2 vezes e a cada oferta do banqueiro, os turnos para a escolha de maletas vao diminuiundo,começando com 6 e terminando com 3
                     while int(self.removemaletas) > 26 or int(self.removemaletas) < 1:
                         print ("Maleta não existente")
                         self.removemaletas = input("Escolha uma maleta para ser removida (1,26): ")
@@ -131,11 +134,14 @@ class Jogo:
                             
                             
                             turn = turn - 1
-            
+
+
+            #Comentario - Caso a uma maleta seja escolhida, o banqueiro faz sua oferta com a maleta que foiretirada das opções
             if len(self.maletas) == 1:
               
                 self.Banqueiro2(self.escolhido,self.checklist)
             self.Banqueiro(self.escolhido,self.checklist)
+    #Comentario - funcao que é responsavel pela a integracao do jogo principal
     def jogar(self):
         self.main()
         self.Banqueiro()
@@ -145,7 +151,7 @@ class Jogo:
 
 
 
-
+#Comentário - cria a janela da interface
 class Tabuleiro:
     def __init__(self):
         self.janela = Tk()
@@ -155,16 +161,17 @@ class Tabuleiro:
         self.interface()
         
         
-
+    #Comentario - funcao que cria um botao dizendo o valor da maleta escolhida
     def bt_onclick(escolhido):    
 
         print("a maleta",escolhido.get(),"valia:")
         
 
 
+
     def interface(self):
         
-    ## Entry de dados
+    ## Entry de dados com um labele que retira a  maleta escolhida
         self.lb27= Label(self.janela,width = 25,fg="black",bg="gold",text= "Digite o No da maleta a ser retirada")
         self.lb27.place(x= 300, y = 390)
 #        self.lb28=Label(self.janela,width = 35, fg = "black", bg= "gold",text= "maleta")
@@ -175,7 +182,7 @@ class Tabuleiro:
         self.bt27.place(x= 300, y =450)
 
 
-    ## Maletas
+    ## Construcao dos labels da maleta(1,26)
         self.lb1= Label(self.janela,width = 15, text = "Maleta 1",bg= "black",fg= "gold")
         self.lb1.place(x = 300, y =0)
 
@@ -256,7 +263,7 @@ class Tabuleiro:
 
 
 
-    ## Valores
+    ## atribuicao dos valores da maleta de 50 centavos a 1.000.000 de reais
         self.lb28= Label(self.janela,width = 15,fg="black",bg="gold", text = "R$ 0.5")
         self.lb28.place(x = 1, y =0)
 
@@ -336,12 +343,12 @@ class Tabuleiro:
         self.lb53.place(x = 150, y =360)
 
 
-
+# funcao que corresponde ao inicio da inteface
     def iniciar(self):
         self.janela.mainloop()
     
 
-
+# funcao principal que inicializa o jogo
 def INICIAR():
     interface= Tabuleiro()
     interface.iniciar()
