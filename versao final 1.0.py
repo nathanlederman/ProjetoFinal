@@ -136,7 +136,7 @@ class Jogo:
                             turn = turn - 1
 
 
-            #Comentario - Caso a uma maleta seja escolhida, o banqueiro faz sua oferta com a maleta que foiretirada das opções
+            #Comentario - Caso a uma maleta seja escolhida, o banqueiro faz sua oferta com a maleta que foiretirada das opç
             if len(self.maletas) == 1:
               
                 self.Banqueiro2(self.escolhido,self.checklist)
