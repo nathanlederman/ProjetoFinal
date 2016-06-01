@@ -13,22 +13,22 @@ class Tabuleiro:
 
 
 
-    def bt_onclick(ed):
+    def bt_onclick( ed):
         root = Tk()
-        img = ImageTk.PhotoImage(Image.open("maleta.gif"))
+        #img = ImageTk.PhotoImage(Image.open("maleta.gif"))
+        img = ImageTk.PhotoImage(file='./maleta.gif')
         panel = tk.Label(root, image = img)
+        panel.pack()
+        root.add(panel)
         root.mainloop()
-
-
-
-
+                
         print(ed.get())
 
 
     def interface(self):
 
     ## Entry de dados
-        self.lb27= Label(self.janela,width = 30,fg="black",bg="gold",text= "Digite o No da maleta a ser retirada")
+        self.lb27= Label(self.janela,width = 30,fg="black",bg="gold",text= "Digite o No da maleta")
         self.lb27.place(x= 300, y = 390)
         self.ed= Entry(self.janela,width = 25,fg="black",bg="gold")
         self.ed.place(x= 300, y =420 )
