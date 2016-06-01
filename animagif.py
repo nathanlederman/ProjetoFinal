@@ -11,9 +11,6 @@ root = Tk()
 
 frame = Frame(root)
 frame.pack()
-
-
-# create the canvas, size in pixels
 canvas = Canvas(frame, width=500, height=320, bd=0, highlightthickness=0)
 
 canvas.pack(expand = YES, fill = BOTH)

@@ -9,6 +9,8 @@ import random
 import numpy as np
 import statistics as st
 from tkinter import *
+import time
+from threading import Thread
 
 #Comentário - cria a janela da interface
 class Tabuleiro:
@@ -26,8 +28,27 @@ class Tabuleiro:
     def bt_onclick(self):    
 
         valores = ["R$ 0.5", "R$ 1","R$ 5", "R$ 10", "R$ 25", "R$ 50", "R$ 75", "R$ 100", "R$ 200", "R$ 300", "R$ 400", "R$ 500", "R$ 750","R$ 1.000", "R$ 5.000", "R$ 10.000", "R$ 25.000", "R$ 50.000", "R$ 75.000","R$ 100.000", "R$ 200.000","R$ 300.000", "R$ 400.000", "R$ 500.000", "R$ 750.000", "R$ 1.000.000"]
+        root = self.janela.mainloop()
 
-        
+        frame = Frame(root)
+        frame.pack()
+        canvas = Canvas(frame, width=500, height=320, bd=0, highlightthickness=0)
+
+        canvas.pack(expand = YES, fill = BOTH)
+        gif1 = PhotoImage(file = 'maletasilvio.gif')
+        gif2 = PhotoImage(file='maletasilvio.gif', format="gif -index 2")
+
+    def animate(gif1,gif2):
+        while(True):
+            canvas.create_image(0, 0, image = gif1, anchor = NW)
+            root.update()
+            time.sleep(0.1)
+            canvas.create_image(0, 0, image = gif2, anchor = NW)
+            root.update()
+            time.sleep(0.1)
+
+        t = Thread(target=animate)
+        t.start()
         var = self.ed.get()
         print(var)
         n_random = random.choice(valores)
@@ -40,10 +61,7 @@ class Tabuleiro:
                 
                 novo.append(i)
                 self.maletas2.remove(i)
-                
-                
-                
-        
+
     def interface(self):
         
 ## Entry de dados
@@ -249,11 +267,11 @@ class Tabuleiro:
     
 
 # funcao principal que inicializa o jogo
-def INICIAR():
-    interface= Tabuleiro()
-    interface.iniciar()
-    jogo = Jogo()
-    jogo.jogar()
+    def INICIAR(self):
+        interface= Tabuleiro()
+        interface.iniciar()
+        jogo = Jogo()
+        jogo.jogar()
     
 
 # Comentario - cria a lista de possiveis valores das maletas, e cria duas listas onde a primeira é responsável por checar as maletas que já foram escolhidas e a segunda a escolha do usuário(se ele mantém ou nao)
@@ -393,7 +411,6 @@ class Jogo(Tabuleiro):
         self.Banqueiro2()
         self.Fim()
         self.Remove()
-
 
 
 
