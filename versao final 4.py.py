@@ -15,6 +15,7 @@ class Tabuleiro:
 
     def __init__(self):
         self.maletas2 = []
+        self.nomaletas = []
         self.janela = Tk()
         self.janela["bg"]="black"
         self.janela.geometry("600x800+200+200")
@@ -27,26 +28,46 @@ class Tabuleiro:
 
         valores = ["R$ 0.5", "R$ 1","R$ 5", "R$ 10", "R$ 25", "R$ 50", "R$ 75", "R$ 100", "R$ 200", "R$ 300", "R$ 400", "R$ 500", "R$ 750","R$ 1.000", "R$ 5.000", "R$ 10.000", "R$ 25.000", "R$ 50.000", "R$ 75.000","R$ 100.000", "R$ 200.000","R$ 300.000", "R$ 400.000", "R$ 500.000", "R$ 750.000", "R$ 1.000.000"]
 
-
         var = self.ed.get()
         print(var)
-        n_random = random.choice(valores)
-        novo = []
+        
+        mval='False'
+        
+        for j in self.maletasvalidas: 
+            if j == int(var):
+                mval='True'
+        
+        print(mval)
+        if int(var) > 0 and int(var) < 27 and mval=='True':
+            n_random = random.choice(valores)
+            n_maleta = "Maleta "+var
+            print(n_maleta)
+            self.maletasvalidas.remove(int(var))
+            print(self.maletasvalidas)
+            novo = []
 
-        for i in self.maletas2:
-
-            if i["text"] == n_random:
-                i["bg"] = "black"
-
-                novo.append(i)
-                self.maletas2.remove(i)
-
-
+            for i in self.maletas2:
+                
+                if i["text"] == n_random:
+                    i["bg"] = "black"
+                    novo.append(i)
+                    self.maletas2.remove(i)
+                    
+            for k in self.nomaletas:
+                if k["text"] == n_maleta:
+                    print(k["text"])
+                    k["bg"] = "gold"
+                    self.nomaletas.remove(k)
+                        
+        else:
+            print("maleta inexistente")
 
 
     def interface(self):
+        
+        self.maletasvalidas = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]
 
-## Entry de dados
+    ## Entry de dados
         self.lb27= Label(self.janela,width = 25,fg="black",bg="gold",text= "Digite a Maleta:")
         self.lb27.place(x= 300, y = 390)
         self.ed= Entry(self.janela,width = 25,fg="black",bg="gold")
@@ -58,82 +79,107 @@ class Tabuleiro:
     ## Construcao dos labels da maleta(1,26)
         self.lb1= Label(self.janela,width = 15, text = "Maleta 1",bg= "black",fg= "gold")
         self.lb1.place(x = 300, y =0)
+        self.nomaletas.append(self.lb1)
 
         self.lb2= Label(self.janela,width = 15, text = "Maleta 2" ,bg= "black",fg= "gold")
         self.lb2.place(x = 300, y =30)
+        self.nomaletas.append(self.lb2)
 
         self.lb3= Label(self.janela,width = 15, text = "Maleta 3" ,bg= "black",fg= "gold")
         self.lb3.place(x = 300, y =60)
+        self.nomaletas.append(self.lb3)
 
         self.lb4= Label(self.janela,width = 15, text = "Maleta 4" ,bg= "black",fg= "gold")
         self.lb4.place(x = 300, y =90)
+        self.nomaletas.append(self.lb4)
 
         self.lb5= Label(self.janela,width = 15, text = "Maleta 5" ,bg= "black",fg= "gold")
         self.lb5.place(x = 300, y =120)
-
+        self.nomaletas.append(self.lb5)
+        
         self.lb6= Label(self.janela,width = 15, text = "Maleta 6" ,bg= "black",fg= "gold")
         self.lb6.place(x = 300, y =150)
-
+        self.nomaletas.append(self.lb6)
+        
         self.lb7= Label(self.janela,width = 15, text = "Maleta 7" ,bg= "black",fg= "gold")
         self.lb7.place(x = 300, y =180)
-
+        self.nomaletas.append(self.lb7)
+        
         self.lb8= Label(self.janela,width = 15, text = "Maleta 8" ,bg= "black",fg= "gold")
         self.lb8.place(x = 300, y =210)
-
+        self.nomaletas.append(self.lb8)
+        
         self.lb9= Label(self.janela,width = 15, text = "Maleta 9" ,bg= "black",fg= "gold")
         self.lb9.place(x = 300, y =240)
+        self.nomaletas.append(self.lb9)
 
         self.lb10= Label(self.janela,width = 15, text = "Maleta 10" ,bg= "black",fg= "gold")
         self.lb10.place(x = 300, y =270)
-
+        self.nomaletas.append(self.lb10)
+        
         self.lb11= Label(self.janela,width = 15, text = "Maleta 11" ,bg= "black",fg= "gold")
         self.lb11.place(x = 300, y =300)
+        self.nomaletas.append(self.lb11)
 
         self.lb12= Label(self.janela,width = 15, text = "Maleta 12" ,bg= "black",fg= "gold")
         self.lb12.place(x = 300, y =330)
-
+        self.nomaletas.append(self.lb12)        
+        
         self.lb13= Label(self.janela,width = 15, text = "Maleta 13" ,bg= "black",fg= "gold")
         self.lb13.place(x = 300, y =360)
-
+        self.nomaletas.append(self.lb13)
+        
         self.lb14= Label(self.janela,width = 15, text = "Maleta 14" ,bg= "black",fg= "gold")
         self.lb14.place(x = 450, y =0)
-
+        self.nomaletas.append(self.lb14)
+        
         self.lb15= Label(self.janela,width = 15, text = "Maleta 15" ,bg= "black",fg= "gold")
         self.lb15.place(x = 450, y =30)
+        self.nomaletas.append(self.lb15)
 
         self.lb16= Label(self.janela,width = 15, text = "Maleta 16" ,bg= "black",fg= "gold")
         self.lb16.place(x = 450, y =60)
-
+        self.nomaletas.append(self.lb16)
+        
         self.lb17= Label(self.janela,width = 15, text = "Maleta 17" ,bg= "black",fg= "gold")
         self.lb17.place(x = 450, y =90)
+        self.nomaletas.append(self.lb17)
 
         self.lb18= Label(self.janela,width = 15, text = "Maleta 18" ,bg= "black",fg= "gold")
         self.lb18.place(x = 450, y =120)
-
+        self.nomaletas.append(self.lb18)
+        
         self.lb19= Label(self.janela,width = 15, text = "Maleta 19" ,bg= "black",fg= "gold")
         self.lb19.place(x = 450, y =150)
-
+        self.nomaletas.append(self.lb19)
+        
         self.lb20= Label(self.janela,width = 15, text = "Maleta 20" ,bg= "black",fg= "gold")
         self.lb20.place(x = 450, y =180)
-
+        self.nomaletas.append(self.lb20)
+        
         self.lb21= Label(self.janela,width = 15, text = "Maleta 21" ,bg= "black",fg= "gold")
         self.lb21.place(x = 450, y =210)
-
+        self.nomaletas.append(self.lb21)
+        
         self.lb22= Label(self.janela,width = 15, text = "Maleta 22" ,bg= "black",fg= "gold")
         self.lb22.place(x = 450, y =240)
+        self.nomaletas.append(self.lb22)
 
         self.lb23= Label(self.janela,width = 15, text = "Maleta 23" ,bg= "black",fg= "gold")
         self.lb23.place(x = 450, y =270)
+        self.nomaletas.append(self.lb23)
 
         self.lb24= Label(self.janela,width = 15, text = "Maleta 24" ,bg= "black",fg= "gold")
         self.lb24.place(x = 450, y =300)
+        self.nomaletas.append(self.lb24)
 
         self.lb25= Label(self.janela,width = 15, text = "Maleta 25" ,bg= "black",fg= "gold")
         self.lb25.place(x = 450, y =330)
+        self.nomaletas.append(self.lb25)
 
         self.lb26= Label(self.janela,width = 15, text = "Maleta 26" ,bg= "black",fg= "gold")
         self.lb26.place(x = 450, y =360)
-
+        self.nomaletas.append(self.lb26)
 
 
     ## Valores
@@ -259,7 +305,8 @@ def INICIAR():
 # Comentario - cria a lista de possiveis valores das maletas, e cria duas listas onde a primeira é responsável por checar as maletas que já foram escolhidas e a segunda a escolha do usuário(se ele mantém ou nao)
 class Jogo(Tabuleiro):
     def __init__(self):
-        self.maletas = [.5, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750,1000, 5000, 10000, 25000, 50000, 75000,100000, 200000,300000, 400000, 500000, 750000, 1000000]
+        
+        self.maletas = [.5, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000,100000, 200000,300000, 400000, 500000, 750000, 1000000]
 
         self.checklist = []
 
@@ -267,68 +314,60 @@ class Jogo(Tabuleiro):
 
     #comentário - funcao main, checa se o usuario escolheu uma maleta dentro do range e caso esteja, randomiza as maletas e os valores e as maletas escolhidas sao adicionadas na lista checklist
     def main(self):
-    	self.escolhido = self.interface.ed #escolhido = input("Escolha a maleta (1,26): ")
+        self.escolhido = self.interface.ed #escolhido = input("Escolha a maleta (1,26): ")
+        
+        if int(self.escolhido) > 26 or int(self.escolhido) < 1:
+            print ("Maleta não existente")
+            self.main()
 
-    	if int(self.escolhido) > 26 or int(self.escolhido) < 1:
-    		print ("Maleta não existente")
-    		self.main()
-
-    	else:
-
-
-                self.Malas = random.choice(self.maletas)
-                self.maletas.remove(self.Malas)
-                self.escolha.append(self.Malas)
-                self.checklist.append(self.escolhido)
-                self.Remove(self.escolhido,self.checklist)
+        else:
+            self.Malas = random.choice(self.maletas)
+            self.maletas.remove(self.Malas)
+            self.escolha.append(self.Malas)
+            self.checklist.append(self.escolhido)
+            self.Remove(self.escolhido,self.checklist)
 
 
 
     # Comentário - A funcao banqueiro é responsável por fazer a média dos valores das maletas ainda possiveis para escolha levando em conta desvio padrão e o tipode distribuicao
     def Banqueiro(self,escolhido,checklist):
-
-            self.media = sum(self.maletas)/float(len(self.maletas))
-
-            self.desvio = st.stdev(self.maletas)
-
-            self.desvio2 = (self.desvio/float(len(self.maletas)))*0.1
-
-            self.normal1 = (np.random.normal(self.media, self.desvio2, 1))
-
-            self.oferta = self.normal1
-
-            print(self.media)
-            print(self.oferta)
+        
+        self.media = sum(self.maletas)/float(len(self.maletas))
+        
+        self.desvio = st.stdev(self.maletas)
+        
+        self.desvio2 = (self.desvio/float(len(self.maletas)))*0.1
+        
+        self.normal1 = (np.random.normal(self.media, self.desvio2, 1))
+        
+        self.oferta = self.normal1
+        
+        print(self.media)
+        print(self.oferta)
 
             #Comentário - Nessa secçção o usuario decide se aceita a oferta calculada pelo banqueiro, se aceitar a oferta  o jogo termina e ele recebe o valor caso recuse, o jogo retorna ao normal onde o jogador continua eliminando as maletas
-            if len(self.maletas) > 1:
-
-
-                    print ("O Banqueiro ofereceu","R$","%.2f"%self.oferta, "Voce aceita (S)im ou (N)ao" )
-                    self.decisao = input("Ma Oe?: ")
-
-                    if self.decisao == "S" or self.decisao == "s":
-                        print ("Voce ganhou","R$","%.2f"%self.oferta)
-
-                        print ("Sua maleta tinha","R$",self.escolha)
-
-                    elif self.decisao == "N" or self.decisao == "n":
-                        del self.turnos[0]
-                        self.Remove(self.escolhido,self.checklist)
-
-                    else:
-                        print ("Opcao invalida")
-                        self.Banqueiro(self.escolhido,self.checklist)
+        if len(self.maletas) > 1:
+            print ("O Banqueiro ofereceu","R$","%.2f"%self.oferta, "Voce aceita (S)im ou (N)ao" )
+            self.decisao = input("Ma Oe?: ")
+        if self.decisao == "S" or self.decisao == "s":
+            print ("Voce ganhou","R$","%.2f"%self.oferta)
+            print ("Sua maleta tinha","R$",self.escolha)
+        elif self.decisao == "N" or self.decisao == "n":
+            del self.turnos[0]
+            self.Remove(self.escolhido,self.checklist)
+        else:
+            print ("Opcao invalida")
+            self.Banqueiro(self.escolhido,self.checklist)
 
     #Comentário - funcao que quando tiver apenas 1 maleta, faz a media dos valores restantes
     def Banqueiro2(self,escolhido,checklist):
-
-            self.media = sum(self.maletas)/float(len(self.maletas))
-
-            print(self.media)
-
-            if len(self.maletas) == 1:
-                self.Fim(self.media, self.escolha, self.escolhido)
+        
+        self.media = sum(self.maletas)/float(len(self.maletas))
+        
+        print(self.media)
+        
+        if len(self.maletas) == 1:
+            self.Fim(self.media, self.escolha, self.escolhido)
 
     #Comentario - Funcao checa o input do usuario, caso ele queria ficar com a maleta, o jogo termina, caso não ele terá a opcao de aceitar umaultima oferta do banqueiro e se recusar terá o valor da ultima maleta restante
     def Fim(self,oferta, escolha, escolhido):
@@ -336,56 +375,49 @@ class Jogo(Tabuleiro):
         self.final = input("Voce quer manter sua maleta final?  (S)im ou (N)ão: ")
 
         if self.final == "s" or self.final == "S":
-                print ("Voce ganhou","R$",self.escolha)
-                print ("FIM DE JOGO")
-
+            print ("Voce ganhou","R$",self.escolha)
+            print ("FIM DE JOGO")
         elif self.final == "N" or self.final == "n":
-               print ("Voce ganhou","R$","%.2f"%self.oferta)
-               self.main()
-
+            print ("Voce ganhou","R$","%.2f"%self.oferta)
+            self.main()
         else:
-           print ("Opcão invalida")
-           self.Banqueiro(self.escolhido,self.checklist)
+            print ("Opcão invalida")
+            self.Banqueiro(self.escolhido,self.checklist)
 
     #Comentário - funcao que remove as maletas dentro do range estabelecido
     turnos = [6,3,6,3,3,2,2]
     def Remove(self,escolhido,checklist):
-
+        
         for i in self.turnos:
-
             turn = i
             while turn != 0:
+                print(self.escolhido)
+                print(self.checklist)
+                print(self.maletas)
+                
+                self.removemaletas = input("Escolha uma maleta para ser removida (1,26): ")
 
-                    print(self.escolhido)
-                    print(self.checklist)
-                    print(self.maletas)
-
+                #Comentário - Nessa secção,checa se as maletas escolhidas para serem removidas estao no range, checa se a maleta nao foi escolhida 2 vezes e a cada oferta do banqueiro, os turnos para a escolha de maletas vao diminuiundo,começando com 6 e terminando com 3
+                while int(self.removemaletas) > 26 or int(self.removemaletas) < 1:
+                    print ("Maleta não existente")
                     self.removemaletas = input("Escolha uma maleta para ser removida (1,26): ")
-
-        		    #Comentário - Nessa secção,checa se as maletas escolhidas para serem removidas estao no range, checa se a maleta nao foi escolhida 2 vezes e a cada oferta do banqueiro, os turnos para a escolha de maletas vao diminuiundo,começando com 6 e terminando com 3
-                    while int(self.removemaletas) > 26 or int(self.removemaletas) < 1:
-                        print ("Maleta não existente")
-                        self.removemaletas = input("Escolha uma maleta para ser removida (1,26): ")
-
-                    if self.removemaletas in self.checklist:
-                        print ("Essa maleta já foi escolhida")
-
-                    else:
-
-                            self.Malas = random.choice(self.maletas)
-                            self.maletas.remove(self.Malas)
-                            self.checklist.append(self.removemaletas)
-                            print(self.Malas)
-
-
-                            turn = turn - 1
+                    
+                if self.removemaletas in self.checklist:
+                    print ("Essa maleta já foi escolhida")
+                else:
+                    self.Malas = random.choice(self.maletas)
+                    self.maletas.remove(self.Malas)
+                    self.checklist.append(self.removemaletas)
+                    print(self.Malas)
+                
+                turn = turn - 1
 
 
             #Comentario - Caso a uma maleta seja escolhida, o banqueiro faz sua oferta com a maleta que foiretirada das opções
             if len(self.maletas) == 1:
-
                 self.Banqueiro2(self.escolhido,self.checklist)
             self.Banqueiro(self.escolhido,self.checklist)
+            
     #Comentario - funcao que é responsavel pela a integracao do jogo principal
     def jogar(self):
         self.main()
