@@ -1,0 +1,18 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jun 15 01:46:03 2016
+
+@author: brunoiampolsky
+"""
+
+"Bem Vindo ao Topa ou Não Topa"
+
+"Para jogar esse jogo é necessário ter o Python versão 3.0 ou maior!"
+
+"Para melhores informações, e o manual do usuários, acesse o link abaixo"
+
+https://github.com/nathanlederman/ProjetoFinal
+
+"Um Bom Divertimento!"
+
+"Project made by: Bruno Iampolsky, Nathan Lederman and Luis Vieira"
